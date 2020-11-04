@@ -2,7 +2,7 @@
   <!--Header container-->
   <header style="position:relative;">
     <!--  Top Header Default-->
-    <ng-container>
+    <ng-container *ngIf="!showHeader1">
       <div class="top-header default">
         <!--Header Left-->
         <div class="top-header_left">
@@ -10,9 +10,9 @@
         </div>
         <!--Header Right-->
         <div class="top-header_right">
-          <button class="login">Log In</button>
+          <button class="login" (click)="login()">Log In</button>
           <button mat-icon-button>
-            <mat-icon style="color: white;">menu</mat-icon>
+            <mat-icon style="color: white;  font-size: 2.5rem;" (click)="toggleHeader1()">menu</mat-icon>
           </button>
         </div>
       </div>
@@ -20,7 +20,7 @@
 
 
     <!--  Top Header Header1-->
-    <ng-container>
+    <ng-container *ngIf="showHeader1">
       <div class="top-header header-1" style="position: absolute;">
         <div class="top-1">
         <!--Header Left-->
@@ -31,7 +31,7 @@
           <div class="top-header_right">
             <div class="top-header_right_top_content">
               <button class="login">Log In</button>
-              <button mat-icon-button>
+              <button mat-icon-button class="icon-button" (click)="toggleHeader1()">
                 <mat-icon>clear</mat-icon>
               </button>
             </div>
@@ -99,7 +99,7 @@
       <h1>Swipe Right <span>&reg;</span></h1>
     </div>
 
-    <button class="create-account">Create Account</button>
+    <button class="create-account" (click)="login()">Create Account</button>
   </main>
 
 
